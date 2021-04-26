@@ -1,0 +1,161 @@
+[
+  {
+    "httpRequest": {
+      "method": "GET",
+      "path": "/api/v1/heroes"
+    },
+    "httpResponse": {
+      "body": [
+        {
+          "id": "91d95163-e704-4da6-894a-1252c8eee75a",
+          "name": "Spiderman",
+          "birthday": "2021-04-28T03:00:00.000Z",
+          "superpowers": [
+            {
+              "id": "884b04af-eefc-4300-9943-3abbc5eaf140",
+              "name": "Superstrength"
+            },
+            {
+              "id": "9a60bda4-2dff-40b8-bc23-b2881c588b09",
+              "name": "Spidersense"
+            }
+          ]
+        },
+        {
+          "id": "e128e279-b399-4783-b659-debf253f9811",
+          "name": "Superman",
+          "birthday": "2021-04-28T03:00:00.000Z",
+          "superpowers": [
+            {
+              "id": "884b04af-eefc-4300-9943-3abbc5eaf140",
+              "name": "Superstrength"
+            },
+            {
+              "id": "22facbc7-a3ab-4f73-bf4f-06ce3b724a0e",
+              "name": "Flight"
+            }
+          ]
+        }
+      ],
+      "statusCode": 200
+    }
+  },
+  {
+    "httpRequest": {
+      "method": "GET",
+      "path": "/api/v1/heroes/91d95163-e704-4da6-894a-1252c8eee75a"
+    },
+    "httpResponse": {
+      "body": {
+        "id": "91d95163-e704-4da6-894a-1252c8eee75a",
+        "name": "Spiderman",
+        "birthday": "2021-04-28T03:00:00.000Z",
+        "superpowers": [
+          {
+            "id": "884b04af-eefc-4300-9943-3abbc5eaf140",
+            "name": "Superstrength"
+          },
+          {
+            "id": "9a60bda4-2dff-40b8-bc23-b2881c588b09",
+            "name": "Spidersense"
+          }
+        ]
+      },
+      "statusCode": 200
+    }
+  },
+  {
+    "httpRequest": {
+      "method": "GET",
+      "path": "/api/v1/heroes/e128e279-b399-4783-b659-debf253f9811"
+    },
+    "httpResponse": {
+      "body": {
+        "id": "e128e279-b399-4783-b659-debf253f9811",
+        "name": "Superman",
+        "birthday": "2021-04-28T03:00:00.000Z",
+        "superpowers": [
+          {
+            "id": "884b04af-eefc-4300-9943-3abbc5eaf140",
+            "name": "Superstrength"
+          },
+          {
+            "id": "22facbc7-a3ab-4f73-bf4f-06ce3b724a0e",
+            "name": "Flight"
+          }
+        ]
+      },
+      "statusCode": 200
+    }
+  },
+  {
+    "httpRequest": {
+      "method": "GET",
+      "path": "/api/v1/superpowers"
+    },
+    "httpResponse": {
+      "body": [
+        {
+          "id": "884b04af-eefc-4300-9943-3abbc5eaf140",
+          "name": "Superstrength"
+        },
+        {
+          "id": "9a60bda4-2dff-40b8-bc23-b2881c588b09",
+          "name": "Spidersense"
+        },
+        {
+          "id": "22facbc7-a3ab-4f73-bf4f-06ce3b724a0e",
+          "name": "Flight"
+        }
+      ],
+      "statusCode": 200
+    }
+  },
+  {
+    "httpRequest": {
+      "method": "POST",
+      "path": "/api/v1/heroes"
+    },
+    "httpResponse": {
+      "statusCode": 200
+    }
+  },
+  {
+    "httpRequest": {
+      "method": "PUT",
+      "path": "/api/v1/heroes/{heroId}",
+      "pathParameters": {
+        "heroId": [
+          {
+            "schema": {
+              "type": "string",
+              "pattern": "^[{]?[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}[}]?$"
+            }
+          }
+        ]
+      }
+    },
+    "httpResponse": {
+      "statusCode": 200
+    }
+  },
+  {
+    "httpRequest": {
+      "method": "DELETE",
+      "path": "/api/v1/heroes/{heroId}",
+      "pathParameters": {
+        "heroId": [
+          {
+            "schema": {
+              "type": "string",
+              "pattern": "^[{]?[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}[}]?$"
+            }
+          }
+        ]
+      }
+    },
+    "httpResponse": {
+      "statusCode": 200
+    }
+  }
+]
