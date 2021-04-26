@@ -24,13 +24,14 @@ export class DeleteHeroComponent {
   public heroName$ = this.heroesService
     .getHeroById(this.heroId)
     .pipe(map((hero) => hero.name));
-  public delete() {
+
+  public delete(): void {
     this.heroesService.deleteHero(this.heroId).subscribe({
       next: () => this.deleteSuccess(),
     });
   }
 
-  private deleteSuccess() {
+  private deleteSuccess(): void {
     console.log('this.snackbar', this.snackbar);
     this.snackbar.open('Hero successfully deleted', 'Ok');
     this.heroesService.refreshHeroes$.next();

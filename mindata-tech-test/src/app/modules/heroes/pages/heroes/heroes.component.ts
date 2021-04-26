@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
@@ -13,7 +13,7 @@ import { HeroesService } from '../../services/heroes.service';
   templateUrl: './heroes.component.html',
   styleUrls: ['./heroes.component.scss'],
 })
-export class HeroesComponent implements OnInit, AfterViewInit {
+export class HeroesComponent implements OnInit, AfterViewInit, OnDestroy {
   public displayedColumns: string[] = ['name', 'birthday', 'superpowers', 'actions'];
   private heroes$ = this.heroesService
     .getHeroes()
@@ -47,13 +47,12 @@ export class HeroesComponent implements OnInit, AfterViewInit {
 
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
-    this.dataSource.sortingDataAccessor = (data, attribute) => 
+    this.dataSource.sortingDataAccessor = (data, attribute) =>
       (getKeyValue(data)(attribute as keyof Hero) as string).toLowerCase();
     this.filterText$.subscribe({
       next: (filterText) => (this.dataSource.filter = filterText),
     });
   }
-  
 
   ngOnDestroy(): void {
     this.onDestroy$.next();

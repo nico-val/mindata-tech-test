@@ -50,7 +50,9 @@ export class HeroFormComponent implements OnInit, AfterViewInit, OnDestroy {
   });
 
   private onDestroy$: Subject<void> = new Subject();
-  public saving$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  public saving$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(
+    false
+  );
 
   public get heroId(): string {
     return this.data && this.data.id ? this.data.id : null;
@@ -93,9 +95,7 @@ export class HeroFormComponent implements OnInit, AfterViewInit, OnDestroy {
     this.filteredSuperpowers$ = combineLatest([
       this.superpowers$,
       this.superpowerFilter$,
-      this.form.controls.superpowers.valueChanges.pipe(
-        startWith(null)
-      ),
+      this.form.controls.superpowers.valueChanges.pipe(startWith(null)),
     ]).pipe(
       takeUntil(this.onDestroy$),
       map(
@@ -150,7 +150,7 @@ export class HeroFormComponent implements OnInit, AfterViewInit, OnDestroy {
     this.superpowerFilter$.next('');
   }
 
-  save() {
+  save(): void {
     if (this.saving$.value) {
       return;
     }
@@ -176,17 +176,21 @@ export class HeroFormComponent implements OnInit, AfterViewInit, OnDestroy {
     }
   }
 
-  private saveSuccess() {
+  private saveSuccess(): void {
     this.saving$.next(false);
     this.heroService.refreshHeroes$.next();
     this.dialogRef.close();
     this.snackBar.open(
-      this.creation ? 'Hero successfully saved' : this.edition ? 'Hero successfully edited' : '',
+      this.creation
+        ? 'Hero successfully saved'
+        : this.edition
+        ? 'Hero successfully edited'
+        : '',
       'Ok'
     );
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.onDestroy$.next();
   }
 }

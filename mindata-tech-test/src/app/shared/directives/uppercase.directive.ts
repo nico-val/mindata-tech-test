@@ -6,7 +6,7 @@ import { Directive, ElementRef, HostListener } from '@angular/core';
 export class UppercaseDirective {
   lastValue: string = '';
 
-  @HostListener('input', ['$event']) onInput($event: any) {
+  @HostListener('input', ['$event']) onInput($event: any): void {
     const start = $event.target.selectionStart;
     const end = $event.target.selectionEnd;
     $event.target.value = $event.target.value.toUpperCase();
