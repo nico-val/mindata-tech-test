@@ -15,7 +15,7 @@ import { NoWhitespaceValidator } from 'src/app/shared/validators/whitespace.vali
   templateUrl: './filter.component.html',
   styleUrls: ['./filter.component.scss'],
 })
-export class FilterComponent implements OnInit {
+export class FilterComponent {
   public filterFormControl = this.formBuilder.control(null, [
     NoWhitespaceValidator,
   ]);
@@ -27,6 +27,4 @@ export class FilterComponent implements OnInit {
   );
 
   constructor(private formBuilder: FormBuilder) {}
-
-  ngOnInit(): void {}
 }
