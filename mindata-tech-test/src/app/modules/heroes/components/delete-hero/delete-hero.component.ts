@@ -32,7 +32,6 @@ export class DeleteHeroComponent {
   }
 
   private deleteSuccess(): void {
-    console.log('this.snackbar', this.snackbar);
     this.snackbar.open('Hero successfully deleted', 'Ok');
     this.heroesService.refreshHeroes$.next();
     this.dialogRef.close();

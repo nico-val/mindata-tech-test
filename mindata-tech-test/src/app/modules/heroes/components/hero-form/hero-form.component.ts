@@ -82,7 +82,6 @@ export class HeroFormComponent implements OnInit, AfterViewInit, OnDestroy {
     if (this.edition) {
       this.hero$.subscribe({
         next: (res) => {
-          console.log('res.birthday', res.birthday);
           this.form.controls.name.setValue(res.name);
           this.form.controls.birthday.setValue(res.birthday);
           this.form.controls.superpowers.setValue(res.superpowers);
@@ -140,7 +139,6 @@ export class HeroFormComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   selectSuperpower(event: MatAutocompleteSelectedEvent): void {
-    console.log('event', event);
     this.form.controls.superpowers.setValue([
       ...this.form.controls.superpowers.value,
       event.option.value,

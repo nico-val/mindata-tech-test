@@ -23,8 +23,7 @@ export class FilterComponent implements OnInit {
   @Output()
   public filterTextChanged = this.filterFormControl.valueChanges.pipe(
     map((filterText) => (this.filterFormControl.valid ? filterText : null)),
-    distinctUntilChanged(),
-    tap((a) => console.log(a))
+    distinctUntilChanged()
   );
 
   constructor(private formBuilder: FormBuilder) {}
