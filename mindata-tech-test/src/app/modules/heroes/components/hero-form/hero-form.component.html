@@ -1,4 +1,4 @@
-<h1 mat-dialog-title>{{ creation ? 'New hero'  : 'Edit hero'}}</h1>
+<h1 mat-dialog-title>{{ creation ? "New hero" : "Edit hero" }}</h1>
 <div mat-dialog-content>
   <p *ngIf="creation">Setup a new hero!</p>
   <p *ngIf="edition">Update information of the hero</p>
@@ -8,14 +8,23 @@
       <mat-form-field>
         <mat-label> Hero's name </mat-label>
         <input matInput formControlName="name" appUppercase required />
-        <mat-error *ngIf="form.controls.name.errors?.required || form.controls.name.errors?.whitespace">
+        <mat-error
+          *ngIf="
+            form.controls.name.errors?.required ||
+            form.controls.name.errors?.whitespace
+          "
+        >
           A hero needs a name
         </mat-error>
       </mat-form-field>
 
       <mat-form-field appearance="fill" class="example-form-field">
         <mat-label>Birthday</mat-label>
-        <input formControlName="birthday" matInput [matDatepicker]="datepicker" />
+        <input
+          formControlName="birthday"
+          matInput
+          [matDatepicker]="datepicker"
+        />
         <mat-error *ngIf="form.controls.birthday.errors?.required">
           A hero needs a birthday
         </mat-error>
@@ -71,7 +80,6 @@
         >
           <mat-option
             *ngFor="let superpower of filteredSuperpowers$ | async"
-            
             [value]="superpower"
           >
             {{ superpower.name }}

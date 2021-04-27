@@ -31,7 +31,6 @@ import { LoadingComponent } from './components/loading/loading.component';
 import { UppercaseDirective } from './directives/uppercase.directive';
 import { MatNativeDateModule } from '@angular/material/core';
 
-
 @NgModule({
   declarations: [LoadingComponent, UppercaseDirective],
   imports: [
@@ -55,15 +54,12 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatCardModule,
     MatExpansionModule,
     MatStepperModule,
-    // MatSelectModule,
-    // MatCheckboxModule,
     MatAutocompleteModule,
     MatSlideToggleModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    // MatNativeDateModule,
-    // FormsModule,
-    // ReactiveFormsModule,
+    FormsModule,
+    ReactiveFormsModule,
     FlexLayoutModule,
   ],
   exports: [
@@ -82,13 +78,11 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatPaginatorModule,
     MatDialogModule,
     MatRadioModule,
-    // MatSnackBarModule,
     MatChipsModule,
     MatCardModule,
     MatExpansionModule,
     MatStepperModule,
     MatSelectModule,
-    // MatCheckboxModule,
     MatAutocompleteModule,
     MatSlideToggleModule,
     MatDatepickerModule,
