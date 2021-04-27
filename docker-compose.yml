@@ -9,12 +9,12 @@ services:
       MOCKSERVER_INITIALIZATION_JSON_PATH: config/initializerJson.json
     volumes:
       - ./config:/config
-  # angular-ui:
-  #   build:
-  #     context: ./mindata-tech-test
-  #   ports:
-  #     - 4200:4200
-  #   container_name: angular-ui
-  #   volumes:
-  #       - ./mindata-tech-test:/usr/src/app/app-ui
-  #       - /usr/src/app/app-ui/node_modules
+  angular-ui:
+    build:
+      context: ./mindata-tech-test
+    ports:
+      - 4200:4200
+    container_name: angular-ui
+    volumes:
+        - ./mindata-tech-test:/usr/src/app/app-ui
+        - /usr/src/app/app-ui/node_modules
